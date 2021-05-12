@@ -1,0 +1,327 @@
+﻿{% extends 'users/layout1.html' %}
+{% load static %}
+{% load crispy_forms_field %}
+{% block extra_css_lib %}
+
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />
+
+    <!-- Bootstrap DatePicker Css -->
+    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
+
+
+    <!-- Wait Me Css -->
+    <link href="{% static 'plugins/waitme/waitMe.css' %}" rel="stylesheet" />
+
+     <!-- Colorpicker Css -->
+    <link href="{% static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css'%}" rel="stylesheet" />
+
+    <!-- Multi Select Css -->
+    <link href="{% static 'plugins/multi-select/css/multi-select.css' %}" rel="stylesheet">
+
+    <!-- Bootstrap Spinner Css -->
+    <link href="{% static 'plugins/jquery-spinner/css/bootstrap-spinner.css'%}" rel="stylesheet">
+
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.css'%}" rel="stylesheet">
+
+
+     <!-- Dropzone Css -->
+    <link href="{% static 'plugins/dropzone/dropzone.css'%}" rel="stylesheet">
+
+    <!-- Sweet Alert Css -->
+    <link href="{% static 'plugins/sweetalert/sweetalert.css' %}" rel="stylesheet" />
+
+
+    <!-- Bootstrap Select Css -->
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />
+
+{% endblock %}
+{% block body %}
+                    <div class="row clearfix">
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                        <div class="profile-body">
+                            <div class="image-area">
+                                <img src="{{student.photo.url }}" alt="AdminBSB - Profile Image" height="100px" />
+                            </div>
+                            {% for stud in student_list %}
+                            <div class="content-area">
+                                <h3>{{stud.first_name}}</h3>
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="profile-footer">
+                            <ul>
+                                <li>
+                                    <span>STUDENT<br>NAME</span>
+                                    <span>{{student.first_name}}</span>
+                                </li>
+                                <li>
+                                    <span>PHONE<br>NUMBER</span>
+                                    <span>{{student.ph_number}}</span>
+                                </li>
+                                <li>
+                                    <span>EMAIL</span>
+                                    <span>{{student.email}}</span>
+                                </li>
+                                <li>
+                                    <span>ID</span>
+                                    <span>{{student.inquiry_id}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-xs-12 col-sm-9">
+                    <div class="card">
+                        <div class="body">
+                            <div>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Profile</a></li>
+                                </ul>
+
+                                <div class="tab-content">
+
+                                    <div role="tabpanel" class="tab-pane fade in" id="profile_settings">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="InputExperience" class="col-sm-2 control-label">Gender</label>
+
+                                                <div class="col-sm-10">
+                                                    <div class="form-line">
+                                                        {{student.gender}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Birthdate</label>
+
+                                                <div class="col-sm-10">
+                                                    <div class="form-line">
+                                                        {{student.birthdate}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Father First Name</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.father_firstname }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Father Second Name</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.father_second_name }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Father Last Name</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.father_last_name }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Building  Name</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.Building_name }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">State Name</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.state_name }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Area Name</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.area_name }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">City Name</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.city }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Country Name</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.country }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Landline Number</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.ph_number_house}}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Gender</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.gender }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">School Name</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.Schoolname }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Education</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{student.education}}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+
+                                    <div role="tabpanel" class="tab-pane fade in" id="change_password_settings">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="OldPassword" class="col-sm-3 control-label">Old Password</label>
+                                                <div class="col-sm-9">
+                                                    <div class="form-line">
+                                                        <input type="password" class="form-control" id="OldPassword" name="OldPassword" placeholder="Old Password" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="NewPassword" class="col-sm-3 control-label">New Password</label>
+                                                <div class="col-sm-9">
+                                                    <div class="form-line">
+                                                        <input type="password" class="form-control" id="NewPassword" name="NewPassword" placeholder="New Password" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="NewPasswordConfirm" class="col-sm-3 control-label">New Password (Confirm)</label>
+                                                <div class="col-sm-9">
+                                                    <div class="form-line">
+                                                        <input type="password" class="form-control" id="NewPasswordConfirm" name="NewPasswordConfirm" placeholder="New Password (Confirm)" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-3 col-sm-9">
+                                                    <button type="submit" class="btn btn-danger">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
+{% block extra_js_lib %}
+     <!-- Jquery Validation Plugin Css -->
+    <script src="{% static 'plugins/jquery-validation/jquery.validate.js' %}"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="{% static 'plugins/jquery-steps/jquery.steps.js' %}"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{% static 'plugins/sweetalert/sweetalert.min.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/pages/forms/form-validation.js' %}"></script>
+
+    <!-- Autosize Plugin Js -->
+    <script src="{% static 'plugins/autosize/autosize.js' %}"></script>
+
+    <!-- Moment Plugin Js -->
+    <script src="{% static 'plugins/momentjs/moment.js' %}"></script>
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js' %}"></script>
+
+    <!-- Bootstrap Datepicker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/pages/forms/basic-form-elements.js' %}"></script>
+
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.js'%}"></script>
+
+    <!-- noUISlider Plugin Js -->
+    <script src="{% static 'plugins/nouislider/nouislider.js'%}"></script>
+
+
+{% endblock %}

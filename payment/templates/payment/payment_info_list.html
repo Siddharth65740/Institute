@@ -1,0 +1,90 @@
+﻿{% extends "users/layout1.html" %}
+{% load crispy_forms_field %}
+{% load static  %}
+{% block extra_css_lib %}
+   <!-- JQuery DataTable Css -->
+    <link href="{% static 'plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css'%}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+  <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Payment Details
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th>Receipt</th>
+                                            <th>Receipt_Date</th>
+                                            <th>Amount</th>
+                                            <th>payment_type</th>
+                                            <th>ch_no</th>
+                                            <th>Bank_Name</th>
+                                            <th>Branch Name</th>
+                                            <th>Action</th>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th rowspan="1" colspan="1">Receipt</th>
+                                            <th rowspan="1" colspan="1">Receipt_Date</th>
+                                            <th rowspan="1" colspan="1">Amount</th>
+                                            <th rowspan="1" colspan="1">payment_type</th>
+                                            <th rowspan="1" colspan="1">ch_no</th>
+                                            <th rowspan="1" colspan="1">Bank Name</th>
+                                            <th rowspan="1" colspan="1">Branch Name</th>
+                                            <th rowspan="1" colspan="1">Action</th>
+
+                                        </tr>
+                                    </tfoot>
+                                  <tbody>
+                                    {% for p in payment_list %}
+                                        <tr>
+                                            <td>{{p.receipt }}</td>
+                                            <td>{{p.Receipt_Date }}</td>
+                                            <td>{{p.Amount }}</td>
+                                            <td>{{p.payment_type }}</td>
+                                            <td>{{p.ch_no }}</td>
+                                            <td>{{p.Bank_Name }}</td>
+                                            <td>{{p.Branch_Name }}</td>
+                                            <td>
+                                                <a href="{% url 'payment-detail' p.id %}" target="_blank">View</a>/
+                                                <a href="{% url 'payment-update' p.id %}">Update</a>/
+                                                <a href="{% url 'payment-delete' p.id %}">Delete</a>
+                                            </td>
+
+                                        </tr>
+                                   {% endfor %}
+                                  </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  </div>
+
+{% endblock %}
+{% block extra_js_lib %}
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="{% static 'plugins/jquery-datatable/jquery.dataTables.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.flash.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/jszip.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/pdfmake.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/vfs_fonts.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.html5.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.print.min.js'%}"></script>
+    <script src="{% static 'js/pages/tables/jquery-datatable.js'%}"></script>
+
+{% endblock %}

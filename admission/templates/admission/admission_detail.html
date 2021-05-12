@@ -1,0 +1,254 @@
+﻿{% extends 'users/layout1.html' %}
+{% load static %}
+{% load crispy_forms_field %}
+{% block extra_css_lib %}
+
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />
+
+    <!-- Bootstrap DatePicker Css -->
+    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
+
+
+    <!-- Wait Me Css -->
+    <link href="{% static 'plugins/waitme/waitMe.css' %}" rel="stylesheet" />
+
+     <!-- Colorpicker Css -->
+    <link href="{%static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css'%}" rel="stylesheet" />
+
+    <!-- Multi Select Css -->
+    <link href="{% static 'plugins/multi-select/css/multi-select.css' %}" rel="stylesheet">
+
+    <!-- Bootstrap Spinner Css -->
+    <link href="{% static 'plugins/jquery-spinner/css/bootstrap-spinner.css'%}" rel="stylesheet">
+
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.css'%}" rel="stylesheet">
+
+
+     <!-- Dropzone Css -->
+    <link href="{% static 'plugins/dropzone/dropzone.css'%}" rel="stylesheet">
+
+    <!-- Sweet Alert Css -->
+    <link href="{% static 'plugins/sweetalert/sweetalert.css' %}" rel="stylesheet" />
+
+
+    <!-- Bootstrap Select Css -->
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />
+
+{% endblock %}
+{% block body %}
+           <div class="row clearfix">
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                        <div class="profile-body">
+                            <div class="image-area">
+                                <img src="{% static 'images/user.png'%}" alt="AdminBSB - Profile Image" height="100px" />
+                            </div>
+                            {% for a in admission_list %}
+                            <div class="content-area">
+                                <h3>{{a.Student}}</h3>
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="profile-footer">
+                            <ul>
+                                <li>
+                                    <span>STUDENT</span>
+                                    <span>{{admission.Student}}</span>
+                                </li>
+                                <li>
+                                    <span>COURSE</span>
+                                    <span>{{admission.Course}}</span>
+                                </li>
+                                <li>
+                                    <span>CREATED BY</span>
+                                    <span>{{admission.Course.user}}</span>
+                                </li>
+                                <li>
+                                    <span>PENDING FEES</span>
+                                    <span>{{admission.Pending_fees}}</span>
+                                </li>
+                                <li>
+                                    <span>STATUS</span>
+                                    <span>{{admission.Status}}</span>
+                                </li>
+
+
+                            </ul>
+<!--                            <button class="btn btn-primary btn-lg waves-effect btn-block">FOLLOW</button>-->
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-xs-12 col-sm-9">
+                    <div class="card">
+                        <div class="body">
+                            <div>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Profile</a></li>
+                                    <li role="presentation"><a href="#change_password_settings" aria-controls="settings" role="tab" data-toggle="tab">Payment Details</a></li>
+
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="profile_settings">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="InputExperience" class="col-sm-2 control-label">Date of addmission</label>
+
+                                                <div class="col-sm-10">
+                                                    <div class="form-line">
+                                                        {{admission.Date_of_addmission}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Start Time</label>
+
+                                                <div class="col-sm-10">
+                                                    <div class="form-line">
+                                                        {{admission.Start_Time}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">End Time</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.End_Time }}
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Start_Date</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.Start_Date }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">End_Date</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.End_Date }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Fees</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.Fees}}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">No_of_Days</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.No_of_Days }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Remarks</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.Remarks}}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade in" id="change_password_settings">
+                                       <table class="table table-striped">
+                                           <thead>
+                                                <tr>
+                                                    <th> Reciept Id</th>
+                                                    <th> Reciept Date</th>
+                                                    <th> Payment Type</th>
+                                                    <th> Amount</th>
+                                                </tr>
+                                           </thead>
+                                           <tbody>
+                                                {% for payinfo in  admission.admission_info.all %}
+                                                    <tr>
+                                                        <td>
+                                                            {{ payinfo.id}}
+                                                        </td>
+                                                        <td> {{ payinfo.Receipt_Date}}</td>
+                                                        <td> {{payinfo.payment_type}}</td>
+                                                        <td>
+                                                            {{ payinfo.Amount }}
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                           </tbody>
+                                       </table>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+
+{% endblock %}
+{% block extra_js_lib %}
+     <!-- Jquery Validation Plugin Css -->
+    <script src="{% static 'plugins/jquery-validation/jquery.validate.js' %}"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="{% static 'plugins/jquery-steps/jquery.steps.js' %}"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{% static 'plugins/sweetalert/sweetalert.min.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/pages/forms/form-validation.js' %}"></script>
+
+    <!-- Autosize Plugin Js -->
+    <script src="{% static 'plugins/autosize/autosize.js' %}"></script>
+
+    <!-- Moment Plugin Js -->
+    <script src="{% static 'plugins/momentjs/moment.js' %}"></script>
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js' %}"></script>
+
+    <!-- Bootstrap Datepicker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/pages/forms/basic-form-elements.js' %}"></script>
+
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.js'%}"></script>
+
+    <!-- noUISlider Plugin Js -->
+    <script src="{% static 'plugins/nouislider/nouislider.js'%}"></script>
+
+
+
+{% endblock %}
