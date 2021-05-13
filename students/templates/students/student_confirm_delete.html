@@ -1,0 +1,31 @@
+{% extends "users/layout1.html" %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th rowspan="1" colspan="1">First Name</th>
+                                            <th rowspan="1" colspan="1">Last Name</th>
+                                            <th rowspan="1" colspan="1">Gender</th>
+                                            <th rowspan="1" colspan="1">Email</th>
+                                            <th rowspan="1" colspan="1">Inquiry ID</th>
+                                    </thead>
+
+                                  <tbody>
+
+                                        <tr>
+                                            <td>{{object.first_name }}</td>
+                                            <td>{{object.last_name}}</td>
+                                            <td>{{object.gender}}</td>
+                                            <td>{{object.email}}</td>
+                                            <td>{{object.inquiry_id}}</td>
+                                        </tr>
+
+                                  </tbody>
+                                </table>
+    <p>Are you sure you want to delete ?</p>
+    <input type="submit" value="Confirm" class="text-danger">
+    <input type="submit" value="Cancel" class="text-success" src="{% url 'student-list' %}">
+</form>
+{% endblock %}

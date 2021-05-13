@@ -1,0 +1,33 @@
+{% extends "users/layout1.html" %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                           <th rowspan="1" colspan="1">Receipt</th>
+                                            <th rowspan="1" colspan="1">Receipt Date</th>
+                                            <th rowspan="1" colspan="1">Amount</th>
+                                            <th rowspan="1" colspan="1">Payment Type</th>
+                                            <th rowspan="1" colspan="1">Cheque Number</th>
+                                            <th rowspan="1" colspan="1">Bank Name</th>
+                                            <th rowspan="1" colspan="1">Branch Name</th>
+                                    </thead>
+
+                                  <tbody>
+
+                                        <tr>
+                                            <td>{{object.receipt}}</td>
+                                            <td>{{object.Receipt_Date }}</td>
+                                            <td>{{object.Amount }}</td>
+                                            <td>{{object.payment_type}}</td>
+                                            <td>{{object.ch_no}}</td>
+                                            <td>{{object.Bank_Name}}</td>
+                                            <td>{{object.Branch_Name}}</td>
+                                  </tbody>
+                                </table>
+    <p>Are you sure you want to delete ?</p>
+    <input type="submit" value="Confirm" class="text-danger">
+    <a href="{% url 'inquiry-list' %}" class="text-success">Cancel</a>
+</form>
+{% endblock %}

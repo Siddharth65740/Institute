@@ -1,0 +1,33 @@
+{% extends "users/layout1.html" %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                           <th rowspan="1" colspan="1">Inquiry</th>
+                                            <th rowspan="1" colspan="1">Date</th>
+                                            <th rowspan="1" colspan="1">First Name</th>
+                                            <th rowspan="1" colspan="1">Second Name</th>
+                                            <th rowspan="1" colspan="1">State</th>
+                                            <th rowspan="1" colspan="1">Area</th>
+                                            <th rowspan="1" colspan="1">City</th>
+                                    </thead>
+
+                                  <tbody>
+
+                                        <tr>
+                                            <td>{{object.inquiry}}</td>
+                                            <td>{{object.date }}</td>
+                                            <td>{{object.first_name}}</td>
+                                            <td>{{object.second_name}}</td>
+                                            <td>{{object.state_name}}</td>
+                                            <td>{{object.area_name}}</td>
+                                            <td>{{object.city_name}}</td>
+                                  </tbody>
+                                </table>
+    <p>Are you sure you want to delete ?</p>
+    <input type="submit" value="Confirm" class="text-danger">
+    <a href="{% url 'inquiry-list' %}" class="text-success">Cancel</a>
+</form>
+{% endblock %}

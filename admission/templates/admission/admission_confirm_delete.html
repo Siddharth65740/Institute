@@ -1,0 +1,39 @@
+{% extends "users/layout1.html" %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th> ID</th>
+                                            <th rowspan="1" colspan="1">Student </th>
+                                            <th rowspan="1" colspan="1">Date of admission</th>
+                                            <th rowspan="1" colspan="1">Course</th>
+                                            <th rowspan="1" colspan="1">Start Date</th>
+                                            <th rowspan="1" colspan="1">End Date</th>
+                                            <th rowspan="1" colspan="1">Pending Fees</th>
+                                            <th rowspan="1" colspan="1">Status</th>
+
+                                    </thead>
+
+                                  <tbody>
+
+                                        <tr>
+                                            <td>{{object.id}}</td>
+                                            <td>{{object.Student }}</td>
+                                            <td>{{object.Date_of_addmission}}</td>
+                                            <td>{{object.Course}}</td>
+                                            <td>{{object.Start_Date}}</td>
+                                            <td>{{object.End_Date}}</td>
+                                            <td>{{object.Pending_fees}}</td>
+                                            <td>{{object.Status}}</td>
+
+                                        </tr>
+
+                                  </tbody>
+                                </table>
+    <p class="text-danger"><b class="font-18">Are you sure you want to delete ?</b></p>
+    <input type="submit" value="Confirm" class="text-danger">
+    <a href="{% url 'admission-list' %}" class="text-green">Cancel</a>
+</form>
+{% endblock %}

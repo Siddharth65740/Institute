@@ -1,0 +1,154 @@
+{% extends "users/layout1.html" %}
+{% load crispy_forms_field %}
+{% load static  %}
+{% block extra_head_lib %}
+    <!-- Bootstrap Select Css -->
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css'%}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <!-- Bootstrap Core Css -->
+    <link href="{% static 'plugins/bootstrap/css/bootstrap.css" rel="stylesheet'%}">
+
+    <!-- Waves Effect Css -->
+    <link href="{% static 'plugins/node-waves/waves.css" rel="stylesheet" ' %}">
+
+    <!-- Animation Css -->
+    <link href="{% static 'plugins/animate-css/animate.css" rel="stylesheet'%}" />
+
+    <!-- Custom Css -->
+    <link href="{% static 'css/style.css" rel="stylesheet'%}">
+{% endblock %}
+{% block body %}
+  <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>New Course Form</h2>
+                            <ul class="header-dropdown m-r--5">
+
+                            </ul>
+                        </div>
+                        <div class="body">
+
+                            <form id="form_validation" method="POST" novalidate="novalidate">
+                               {% csrf_token %}
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                       {% crispy_field form.name %}
+
+                                        <label class="form-label">Name</label>
+
+                                    </div>
+                                    {% if form.name.errors %}
+                                            {% for error in form.name.errors %}
+                                                <label id="name-error" class="error" for="name">This field is required.</label>
+
+                                            {% endfor %}
+                                        {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                <label class="form-label">Description</label>
+                                    <div class="form-line">
+                                       {% crispy_field form.description 'id' 'ckeditor' %}
+
+                                    </div>
+                                    {% if form.description.errors %}
+                                            {% for error in form.description.errors %}
+                                                <label id="description-error" class="error" for="name">This field is required.</label>
+
+                                            {% endfor %}
+                                        {% endif %}
+                                </div>
+
+
+
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.duration %}
+                                        <label class="form-label">Duration(in months)</label>
+                                    </div>
+                                    {% if form.name.errors %}
+                                            {% for error in form.name.errors %}
+                                                <label id="duration-error" class="error" for="Duration">This field is required.</label>
+                                            {% endfor %}
+
+                                    {% endif %}
+                                </div>
+
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.fees %}
+                                        <label class="form-label">Fees</label>
+                                    </div>
+                                    {% if form.fees.errors %}
+                                            {% for error in form.fees.errors %}
+                                                <label id="fees-error" class="error" for="fees">This field is required.</label>
+                                            {% endfor %}
+
+                                    {% endif %}
+                                </div>
+
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                       <p>
+                                        <b>Status</b>
+                                       </p>
+                                   {% crispy_field form.status 'class' 'btn-group bootstrap-select form-control show-tick '  %}
+
+
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <p>
+                                        <b>Created by </b>
+                                    </p>
+                                        {% crispy_field form.user 'class' 'btn-group bootstrap-select form-control show-tick' %}
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="checkbox" id="checkbox" name="checkbox">
+                                    <label for="checkbox">I have read and accept the terms</label>
+                                </div>
+                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
+{% block extra_js_lib %}
+<script src="{% static 'plugins/dropzone/dropzone.js'%}"></script>
+<!-- Input Mask Plugin Js -->
+    <script src="{% static 'plugins/jquery-inputmask/jquery.inputmask.bundle.js'%}"></script>
+
+    <!-- Multi Select Plugin Js -->
+    <script src="{% static 'plugins/multi-select/js/jquery.multi-select.js'%}"></script>
+
+    <!-- Jquery Spinner Plugin Js -->
+    <script src="{% static 'plugins/jquery-spinner/js/jquery.spinner.js'%}"></script>
+
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.js'%}"></script>
+
+    <!-- noUISlider Plugin Js -->
+    <script src="{% static 'plugins/nouislider/nouislider.js'%}"></script>
+
+    <!-- Ckeditor -->
+    <script src="{% static 'plugins/ckeditor/ckeditor.js'%}"></script>
+
+    <!-- TinyMCE -->
+    <script src="{% static 'plugins/tinymce/tinymce.js'%}"></script>
+
+    <script src="{% static 'js/pages/forms/editors.js'%}"></script>
+
+{% endblock %}
