@@ -1,13 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.core.validators import MinValueValidator,MaxValueValidator
+
 # Create your models here.
 
 class course_master(models.Model):
     name=models.CharField(max_length=45)
     description = models.TextField()
-    duration = models.IntegerField()
-    fees=models.IntegerField(default=0)
+    duration = models.IntegerField(validators=[MinValueValidator(0,"Duration cannot be negative")])
+    fees=models.IntegerField(default=0,validators=[MinValueValidator(0,"Fees cannot be negative")])
     status = models.CharField(max_length=20, choices=[('Active', 'Active'), ('Deactive', 'Deactive')])
     user = models.ForeignKey(User, on_delete=models.PROTECT, related_name='course')
 

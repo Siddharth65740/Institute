@@ -217,7 +217,7 @@
                                  <div class="form-group form-float">
                                     <div class="form-line">
                                         <label class="form-label">Mobile Number</label>
-                                        {% crispy_field form.ph_number 'class' 'mobile-phone-number' 'placeholder' 'Ex: +00 (000) 000-00-00' %}
+                                        {% crispy_field form.ph_number 'data-inputmask'  "'mask': '99-9999999'"  %}
                                     </div>
                                     {% if form.ph_number.errors %}
                                         {% for error in form.ph_number.errors %}

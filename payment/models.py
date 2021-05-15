@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.core.validators import MinValueValidator,MaxValueValidator
 
 # Create your models here.
 
@@ -25,9 +26,8 @@ class payment(models.Model):
 
 
 class payment_info(models.Model):
-    receipt = models.IntegerField()
     Receipt_Date = models.DateField(null=True, blank=True)
-    Amount = models.IntegerField()
+    Amount = models.IntegerField(validators=[MinValueValidator(0,"Amount Should not be negative")])
     choice=(
         ('Cash','Cash'),
         ('Cheque','Cheque')

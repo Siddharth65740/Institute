@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.core.validators import MinValueValidator,MaxValueValidator
+
 
 # Create your models here.
 
@@ -10,8 +12,8 @@ class inquiry(models.Model):
     state_name=models.CharField(max_length=22,null=True,blank=True)
     area_name=models.CharField(max_length=22,null=True,blank=True)
     city_name=models.CharField(max_length=22,null=True,blank=True)
-    mobile_num=models.IntegerField(null=True,blank=True,default=0)
-    landline_num=models.IntegerField(null=True,blank=True,default=0)
+    mobile_num=models.IntegerField(null=True,blank=True,default=0,validators=[MinValueValidator(0,"Number  cannot be negative")])
+    landline_num=models.IntegerField(null=True,blank=True,default=0,validators=[MinValueValidator(0,"Number cannot be negative")])
     education=models.CharField(max_length=22,null=True,blank=True)
     clg_name=models.CharField(max_length=22,null=True,blank=True)
     course=models.ForeignKey('course.course_master',on_delete=models.CASCADE,related_name='inquiry',default=1,null=True,blank=True)

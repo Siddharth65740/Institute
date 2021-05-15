@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.core.validators import MinValueValidator,MaxValueValidator
+
 # Create your models here.
 
 class student(models.Model):
@@ -14,8 +16,8 @@ class student(models.Model):
     area_name=models.CharField(max_length=50)
     city=models.CharField(max_length=50)
     country=models.CharField(max_length=50)
-    ph_number=models.CharField(max_length=11)
-    ph_number_house=models.CharField(max_length=11)
+    ph_number=models.CharField(max_length=11,validators=[MinValueValidator(0,"Number should not be negative")])
+    ph_number_house=models.CharField(max_length=11,validators=[MinValueValidator(0,"Number should not be negative")])
     birthdate=models.DateField(null=True, blank=True)
     choice=(
         ('Male','Male'),
