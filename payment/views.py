@@ -31,7 +31,7 @@ class paymentUpdateView(LoginRequiredMixin,UpdateView):
 
 class detail_payment(LoginRequiredMixin,DetailView):
     model = payment_info
-    template_name = 'payment/invoice_print.html'
+    template_name = 'payment/invoice1_print.html'
     
 
 

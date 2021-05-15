@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>STUDENT DATABSE SYSTEM </title>
+    <title>ARHAM COMPUTER INSTITUTE</title>
     <!-- Favicon-->
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 
@@ -51,6 +51,55 @@
     <!-- noUISlider Css -->
     <link href="{% static 'plugins/nouislider/nouislider.min.css'%}" rel="stylesheet" />
 {% endblock%}
+    <style>
+.ribbon {
+ font-size: 16px !important;
+ /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+
+ width: 50%;
+
+ position: relative;
+ background: #ba89b6;
+ color: #fff;
+ text-align: center;
+ padding: 1em 2em; /* Adjust to suit */
+ margin: 2em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+.ribbon:before, .ribbon:after {
+ content: "";
+ position: absolute;
+ display: block;
+ bottom: -1em;
+ border: 1.5em solid #986794;
+ z-index: -1;
+}
+.ribbon:before {
+ left: -2em;
+ border-right-width: 1.5em;
+ border-left-color: transparent;
+}
+.ribbon:after {
+ right: -2em;
+ border-left-width: 1.5em;
+ border-right-color: transparent;
+}
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #804f7c transparent transparent transparent;
+ bottom: -1em;
+}
+.ribbon .ribbon-content:before {
+ left: 0;
+ border-width: 1em 0 0 1em;
+}
+.ribbon .ribbon-content:after {
+ right: 0;
+ border-width: 1em 1em 0 0;
+}
+</style>
 </head>
 
 <body class="theme-red">
@@ -103,8 +152,8 @@
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
             <div class="user-info">
-                <div class="image">
-                    <img src="{% static 'images/Admin.png'%}" width="56" height="56" alt="User" />
+                <div class="card-image">
+                    <img src="{% static 'images/Logo.jpeg'%}" class="card-image"  width="70" height="64" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -234,9 +283,11 @@
     </section>
     
     <section class="content">
-        <div class="container-fluid">
+        <div class="container-fluid" id="carousel-example-generic">
             {% block body%}
-                <marquee class="font-33" scrollamount="20">WELCOME TO<br>ARHAM COMPUTER INSTITUTE</marquee>
+                <h1 class="ribbon">ARHAM COMPUTER INSTITUTE</h1>
+                <img src="{% static 'images/Pic2.jpeg' %}" width="900px" height="500px" class="img-thumbnail" alt="Responsive image">&nbsp;&nbsp;
+                <img src="{% static 'images/Pic1.jpeg' %}" width="900px" height="500px" class="img-thumbnail" alt="Responsive image">&nbsp;&nbsp;
                 <div class="row clearfix">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box hover-zoom-effect">
