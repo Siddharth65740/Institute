@@ -1,0 +1,36 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ARHAM COPUTER INSTITUTE</title>
+</head>
+<body>
+    <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid rgb(2,228,255)">
+            <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid rgb(255,2,98)" class="date-back">
+                <h1 class="text-left"><img src="{% static 'images/Logo.png'  %}" width="90px" height="90px" alt="">ARHAM COMPUTER INSTITUTE</h1>
+{#    <span style="font-size:25px"><i><b>Photo</b></i></span><br>#}
+{#    <span style="font-size:25px" class="img-circle"><i><b><img src="{{ object.photo.url }}" width="100px" height="100px" alt=""></b></i></span><br>#}
+       <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
+       <br><br>
+    <span style="font-size:25px; font-weight:bold"><i><b>This is to certify that</b></i></span>
+       <br><br>
+       <span style="font-size:30px">{{ object.admission.Student.first_name }} {{ object.admission.Student.last_name }}</span><br/><br/>
+    <span style="font-size:25px"><i><b>has completed the course</b></i></span> <br/><br/>
+       <span style="font-size:30px">{{ object.admission.Course.name }}</span> <br/><br/>
+    <span style="font-size:25px"><i><b>In</b></i></span> <br/><br/>
+     <span style="font-size:25px"><i>{{ object.admission.Course.duration }} Months</i></span> <br/><br/>
+    <span style="font-size:25px"><i><b>Dated</b></i></span><br>
+    <script>#set ($dt = $DateFormatter.getFormattedDate($grade.getAwardDate(), "MMMM dd, yyyy"))</script>
+      <span style="font-size:30px">{{ object.admission.End_Date }}</span>
+</div>
+
+
+    </div>
+
+</body>
+<script>
+    window.addEventListener("load", window.print());
+
+</script>
+</html>

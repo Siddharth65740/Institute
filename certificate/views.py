@@ -24,3 +24,4 @@ class delete_view(DeleteView):
 
 class detail_view(DetailView):
     model = Certificate
+    template_name = "certificate/Certificate_generate_detail.html"

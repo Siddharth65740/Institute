@@ -1,10 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "users/layout1.html" %}
+{% load crispy_forms_field %}
+{% load static  %}
+{% block extra_css_lib %}
+   <!-- JQuery DataTable Css -->
+    <link href="{% static 'plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css'%}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block body %}
+  <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2 class="text-center">
+                                Certificate Details
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
 
-</body>
-</html>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th>Date</th>
+                                            <th>Admission</th>
+                                            <th>Photo</th>
+                                            <th>Action</th>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Admission</th>
+                                            <th>Photo</th>
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </tfoot>
+                                  <tbody>
+                                    {% for c in Certificate %}
+                                        <tr>
+                                            <td>{{c.date }}</td>
+                                            <td>{{c.admission }}</td>
+                                            <td><img src="{{c.photo.url}}"  width="50px"  height="50" alt=""></td>
+                                            <td>
+                                                <a href="{% url 'certificate-update' c.id %}">Update</a>/
+{#                                                <a href="{% url 'certificate-view' c.id %}" target="_blank">Generate</a>/#}
+                                                <a href="{% url 'certificate-delete' c.id %}">Delete</a>
+                                            </td>
+
+                                        </tr>
+                                   {% endfor %}
+                                  </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  </div>
+
+{% endblock %}
+{% block extra_js_lib %}
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="{% static 'plugins/jquery-datatable/jquery.dataTables.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.flash.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/jszip.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/pdfmake.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/vfs_fonts.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.html5.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.print.min.js'%}"></script>
+    <script src="{% static 'js/pages/tables/jquery-datatable.js'%}"></script>
+    <!-- Custom Js -->
+    <script src="{% static 'js/admin.js'%}"></script>
+
+    <!-- Demo Js -->
+    <script src="{% static 'js/demo.js'%}"></script>
+
+    <!-- Chart Plugins Js -->
+    <script src="{% static 'plugins/chartjs/Chart.bundle.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/admin.js' %}"></script>
+    <script src="{% static 'js/pages/charts/chartjs.js'%}"></script>
+
+
+
+
+
+{% endblock %}

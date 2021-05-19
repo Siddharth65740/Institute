@@ -26,6 +26,7 @@ urlpatterns = [
     path('inquiry/',include('inquiry_table.urls')),
     path('admission/',include('admission.urls')),
     path('payment/',include('payment.urls')),
+    path('certificate/',include('certificate.urls')),
     path('student/',include('students.urls')),
     path('',auth_views.LoginView.as_view(template_name="users/sign-in.html"),name='login'),
     path('logout/',auth_views.LogoutView.as_view(template_name="users/sign-up.html"),name='logout')

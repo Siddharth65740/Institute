@@ -38,104 +38,24 @@
 
 {% endblock %}
 {% block body %}
-<a href="{% url 'course-list'%}" class="font-18">Course List</a>
-           <div class="row clearfix">
-                <div class="col-xs-12 col-sm-3">
-                    <div class="card profile-card">
-                        <div class="profile-header">&nbsp;</div>
-                        <div class="profile-body">
-                            <div class="image-area">
-                                <img src="{% static 'images/user.png'%}" alt="AdminBSB - Profile Image" height="100px" />
-                            </div>
-                            {% for c in Certificate %}
-                            <div class="content-area">
-                                <h3>{{c.admission}}</h3>
+ <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid rgba(252,252,252,0.05)">
+<div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid rgba(120,120,120,0.85)">
+    <span style="font-size:25px"><i><b>Photo</b></i></span><br>
+    <span style="font-size:25px" class="img-circle"><i><b>{{ object.photo }}</b></i></span><br>
+       <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
+       <br><br>
+    <span style="font-size:25px"><i><b>This is to certify that</b></i></span>
+       <br><br>
+       <span style="font-size:30px">{{ object.admission.Student.first_name }}</span><br/><br/>
+    <span style="font-size:25px"><i><b>has completed the course</b></i></span> <br/><br/>
+       <span style="font-size:30px">{{ object.admission.Course.name }}</span> <br/><br/>
+    <span style="font-size:25px"><i><b>Dated</b></i></span><br>
+    <script>#set ($dt = $DateFormatter.getFormattedDate($grade.getAwardDate(), "MMMM dd, yyyy"))</script>
+      <span style="font-size:30px">{{ object.date }}</span>
+</div>
+ <button onclick="window.print()">Print the Certificate</button>
+</div>
 
-                            </div>
-                            {% endfor %}
-                        </div>
-                        <div class="profile-footer">
-                            <ul>
-                                <li>
-                                    <span>CERTIFICATE<br>DATE</span>
-                                    <span>{{Certificate.date}}</span>
-                                </li>
-                                <li>
-                                    <span>Photo</span>
-                                    <span>{{Certificate.photo}}</span>
-                                </li>
-
-
-                            </ul>
-<!--                            <button class="btn btn-primary btn-lg waves-effect btn-block">FOLLOW</button>-->
-                        </div>
-                    </div>
-
-
-                </div>
-{#                <div class="col-xs-12 col-sm-9">#}
-{#                    <div class="card">#}
-{#                        <div class="body">#}
-{#                            <div>#}
-{#                                <ul class="nav nav-tabs" role="tablist">#}
-{#                                    <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Profile</a></li>#}
-{##}
-{#                                </ul>#}
-{##}
-{#                                <div class="tab-content">#}
-{##}
-{#                                    <div role="tabpanel" class="tab-pane fade in active" id="profile_settings">#}
-{#                                        <form class="form-horizontal">#}
-{#                                            <div class="form-group">#}
-{#                                                <label for="InputExperience" class="col-sm-2 control-label">Description</label>#}
-{##}
-{#                                                <div class="col-sm-10">#}
-{#                                                    <div class="form-line">#}
-{#                                                        {{course_master.description | safe }}#}
-{#                                                    </div>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="form-group">#}
-{#                                                <label for="InputSkills" class="col-sm-2 control-label">Fees</label>#}
-{##}
-{#                                                <div class="col-sm-10">#}
-{#                                                    <div class="form-line">#}
-{#                                                        {{course_master.fees}}#}
-{#                                                    </div>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="form-group">#}
-{#                                                <label for="InputSkills" class="col-sm-2 control-label">Status</label>#}
-{##}
-{#                                                <div class="col-sm-10">#}
-{#                                                   <div class="form-line">#}
-{#                                                    {{course_master.status }}#}
-{#                                                    </div>#}
-{#                                                </div>#}
-{##}
-{##}
-{#                                            </div>#}
-{##}
-{##}
-{#                                            <div class="form-group">#}
-{#                                                <label for="InputSkills" class="col-sm-2 control-label">User</label>#}
-{##}
-{#                                                <div class="col-sm-10">#}
-{#                                                   <div class="form-line">#}
-{#                                                    {{course_master.user}}#}
-{#                                                    </div>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{##}
-{#                                        </form>#}
-{#                                    </div>#}
-{##}
-{##}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
 
 
 {% endblock %}

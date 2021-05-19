@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'course',
     'admission',
     'students',
+    'certificate',
     'rest_framework',
     'payment',
     'inquiry_table',
